@@ -10,6 +10,7 @@ const busSchema=new mongoose.Schema({
         // ref:'Route',
         require:[true,"route Name is Required"],
         trim:true,
+        
     },
     availableSeats:{
         type:Number,
@@ -30,8 +31,15 @@ const busSchema=new mongoose.Schema({
         default:true,
         trim:true,
     },
+    date:{
+        type:Date,
+        // default: Date.now(),
+    },
+    // ofDates:{
+    //     type:Array,
+    // }
 },
-    {timestamps: true},
+    {timestamps: true,autoCreate: false},
     );
 
     const Bus=mongoose.model('bus',busSchema);

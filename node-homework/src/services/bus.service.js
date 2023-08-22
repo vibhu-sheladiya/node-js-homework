@@ -7,6 +7,23 @@ const{Bus}=require('../models');
  */
 const createBus = async (reqBody) => Bus.create(reqBody);
 
+/**get bus list */
+const getBusList=async(req,res)=>{
+    return Bus.find();
+}
+/**get list bus service */
+const getBusById=async(busId)=>{
+    return Bus.findById(busId);
+};
+
+//**delete bus */
+const deleteBus=async(busId)=>{
+    return Bus.findByIdAndDelete(busId)
+}
+
 module.exports={
-    createBus
+    createBus,
+    getBusList,
+    getBusById,
+    deleteBus
 };
