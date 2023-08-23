@@ -5,14 +5,13 @@ const busSchema=new mongoose.Schema({
         trim:true,
         required:[true,'bus name is required'],
     },
-    routeName:{
+    route_name:{
         type : String,
         // ref:'Route',
         require:[true,"route Name is Required"],
         trim:true,
-        
     },
-    availableSeats:{
+    available_seats:{
         type:Number,
         minlength:-1,
         maxlength:+999999999 ,  
@@ -33,15 +32,28 @@ const busSchema=new mongoose.Schema({
     },
     date:{
         type:Date,
-        // default: Date.now(),
+        default:null,
     },
-    // ofDates:{
-    //     type:Array,
-    // }
-},
+    bus_number:{
+        type:String,
+        unique: true,
+        trim:true,
+    },
+    driver_name:{
+        type:String,
+        trim:true,
+     },
+     arrival_time:{
+        type: Date,
+        default: null,
+     },is_active:{
+        type:Boolean,
+        default:true,
+    },
+    },
     {timestamps: true,autoCreate: false},
     );
-
+    
     const Bus=mongoose.model('bus',busSchema);
     module.exports=Bus;
     // farePerKm:{
@@ -49,22 +61,21 @@ const busSchema=new mongoose.Schema({
     //     default:0,
     // },
     // dropOff:{
-    //     type:String,
-    //     trim:true,
-    // },
-    // passenger_name:{
+        //     type:String,
+        //     trim:true,
+        // },
+        // passenger_name:{
+            //     type:Array,
+            //     },
+            //     contactNo:{
+                //         type: Array,
+                //     },
+                //     emailId:{
+                    //         type: Array,
+                    //     },
+                    //     address:{
+    //         type: Array,
+    //     },
+    // ofDates:{
     //     type:Array,
-    //     },
-    //     contactNo:{
-    //         type: Array,
-    //     },
-    //     emailId:{
-    //         type: Array,
-    //     },
-    //     address:{
-    //         type: Array,
-    //     },
-// date:{
-//     type:Date,
-//     default: Date.now(),
-// },
+    // }
