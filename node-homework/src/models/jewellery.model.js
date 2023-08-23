@@ -12,6 +12,37 @@ const jewellerySchema= new mongoose.Schema(
         description:{
             type: String,
         },
+        address:{
+            type :String,
+        },
+        category_name:{
+            type:String,
+            // ref:"Category",
+        },
+        // quantity:{
+        //     type: Number,
+        // },
+        available_stock:{
+            type:Boolean,
+        },
+        item_name:{
+            type:String,
+        },
+    
+        // imagePath :{
+        //     //type:Buffer,
+        //     dataURL: Buffer,
+        //     contentType: String
+        // },
+        // categoryId:{
+        //     ref:"Category",
+        //     type:mongoose.Types.ObjectId
+        //     },
+        //     userId:{
+        //         ref :"User",
+        //         type:mongoose.Types.ObjectId
+        //         },
+
 
     },{timestamps: true,autoCreate: false}
 )
