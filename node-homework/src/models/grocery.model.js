@@ -18,6 +18,6 @@ const grocerySchema=new mongoose.Schema({
         available_stock:{
             type:Number,
         },
-},{timestamps:true,autoCreate:false});
+},{timestamps:true});
 const Grocery=mongoose.model('grocery',grocerySchema);
 module.exports=Grocery;

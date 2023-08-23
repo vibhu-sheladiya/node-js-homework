@@ -10,13 +10,13 @@ const hotelSchema= new mongoose.Schema(
         phone: {
             type: String,
             required: true,
-            unique: true,
+            // unique: true,
         },
         // Email Hotel
         email: {
             type: String,
             required: true,
-            unique: true,
+            // unique: true,
         },
         address:{
                 type:String ,
@@ -33,26 +33,13 @@ const hotelSchema= new mongoose.Schema(
         },
         feature:{
             type:String,
-            maxlength:[20],
             trim   :true,
-        },
-        // type three:- employee,admin,user
-        type:{
-            type:String,
-            maxlength:[10],
-            trim   :true,
-            default:"user"
-        },
-        // Room number
-        room_id: {
-            type: String,
-            default: null
         },
         // Type of Room: single, double etc
-        room_type: {
-            type: String,
-            default: null
-        },
+        // room_type: {
+        //     type: String,
+        //     default: null
+        // },
         // Check in date-time
         check_in: {
             type: String,
@@ -71,23 +58,10 @@ const hotelSchema= new mongoose.Schema(
         // Active, in-active, booked, waiting
         status: {
             type: String,
-            default: "inactive"
+            // default: "inactive"
         },
-        // Amount to be paid
-        balance: {
-            type: String,
-            default: null
-        },
-        // Paymeny Status
-        has_paid: {
-            type: Boolean,
-            default: false
-        },
-        // User secret to be used in forgot password or account verification
-        user_secret: {
-            type: String,
-            default: null
-        },is_active:{
+       
+    is_active:{
             type:Boolean,
             default:true,
         },

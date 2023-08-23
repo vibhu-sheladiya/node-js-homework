@@ -49,9 +49,9 @@ const busSchema=new mongoose.Schema({
      },is_active:{
         type:Boolean,
         default:true,
+    }
     },
-    },
-    {timestamps: true,autoCreate: false},
+    {timestamps: true,autoCreate: false}
     );
     
     const Bus=mongoose.model('bus',busSchema);

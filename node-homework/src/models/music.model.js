@@ -32,7 +32,7 @@ const musicSchema = new mongoose.Schema(
       type: String,
     },
   },
-  { timestamps: true, autoCreate: false }
+  { timestamps: true }
 );
-const Music = mongoose.model("music", musicSchema);
+const Music = mongoose.model('music', musicSchema);
 module.exports = Music;

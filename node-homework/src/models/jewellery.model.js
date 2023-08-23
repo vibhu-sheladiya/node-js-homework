@@ -44,7 +44,7 @@ const jewellerySchema= new mongoose.Schema(
         //         },
 
 
-    },{timestamps: true,autoCreate: false}
+    },{timestamps: true}
 )
 const Jewellery=mongoose.model('jewellery',jewellerySchema);
 module.exports=Jewellery;

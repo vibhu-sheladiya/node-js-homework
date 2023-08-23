@@ -50,7 +50,7 @@ const movieSchema=new mongoose.Schema(
                 type:Date,
                 default: null,
             }
-            },{timestamps:true,autoCreate:false}
+            },{timestamps:true}
 );
 const Movie=mongoose.model('movie',movieSchema);
 module.exports =Movie;

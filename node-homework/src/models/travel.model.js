@@ -38,6 +38,6 @@ phoneNo:{
     type:Boolean,
     default:true,
 },
-},{timestamps: true,autoCreate: false});
+},{timestamps: true});
 const Travel=mongoose.model('travel',travelSchema);
 module.exports=Travel;

@@ -37,7 +37,7 @@ const stationerySchema=new mongoose.Schema(
         in_stock:{
             type:Boolean,
         },
-    },{timestamps:true,autoCreate:false}
+    },{timestamps:true}
 )
 const Stationery=mongoose.model('stationery',stationerySchema);
 module.exports =Stationery;
