@@ -21,8 +21,8 @@ end_date:{
 // description
 description:{
     type:String,
-    maxlength:[10,"description must be less than or equal to 25 characters"],
-    minlength:[3,'description should not be empty'],
+   // maxlength:[10,"description must be less than or equal to 25 characters"],
+    // minlength:[3,'description should not be empty'],
 },
 // email of trip
 email:{

@@ -1,17 +1,17 @@
-const {hotelService}=require('../services');
+const {travelService}=require('../services');
 // create hotel
-const createHotel=async(req,res)=>{
+const createTravel=async(req,res)=>{
     try {
         const reqBody=req.body;
-        console.log(reqBody,'++++++++++ reqbody.hotel');
-        const hotel=await hotelService.createHotel(reqBody);
-        if(!hotel){
+        console.log(reqBody,'++++++++++ reqbody.travel');
+        const travel=await travelService.createTravel(reqBody);
+        if(!travel){
             throw new Error("something went to wrong");
         }
         res.status(201).json({
             success:true,
             message:"created successfully",
-            data:hotel
+            data:travel
         })
     } catch (error) {
         res.status(400).json({success:false,message:error.message});
@@ -19,13 +19,13 @@ const createHotel=async(req,res)=>{
 };
 
 // get hotel list
-const getHotelList=async(req,res)=>{
+const getTravelList=async(req,res)=>{
     try {
-        const hotelList=await hotelService.getHotelList(req,res);
+        const travelList=await travelService.getTravelList(req,res);
         res.status(201).json({
             success:true,
             message:'get all hotels list',
-            data:{hotelList},
+            data:{travelList},
         })
     } catch (error) {
         res.status(400).json({success:false,message:error.message});
@@ -33,15 +33,15 @@ const getHotelList=async(req,res)=>{
 };
 
 // get hotel details by id
-const getHotelDetails=async(req,res)=>{
+const getTravelDetails=async(req,res)=>{
     try {
-        const hotelDetails=await hotelService.getHotelById(req.params.hotelId);
-        if(!hotelDetails){
-            throw new Error("hotel not found");
+        const travelDetails=await travelService.getTravelById(req.params.travelId);
+        if(!travelDetails){
+            throw new Error("trip or travel not found");
         }
         res.status(201).json({
-            success:"hotel details get success",
-            data:hotelDetails,
+            success:"trip or travel details get success",
+            data:travelDetails,
         })
     } catch (error) {
        res.status(400).json({success:false,message:error.message}); 
@@ -49,14 +49,14 @@ const getHotelDetails=async(req,res)=>{
 };
 
 // delete hotel by id
-const deleteHotel=async(req,res)=>{
+const deleteTravel=async(req,res)=>{
     try {
-        const hotelId=req.params.hotelId;
-        const hotelExists=await hotelService.getHotelById(hotelId)
-        if(!hotelExists){
+        const travelId=req.params.travelId;
+        const travelExists=await travelService.getTravelById(travelId)
+        if(!travelExists){
             throw new Error("hotel name not found");
         }
-        await hotelService.deleteHotel(hotelId);
+        await travelService.deleteTravel(travelId);
         res.status(201).json({
             success :true,
             message :"deleted succesfully" ,
@@ -66,8 +66,8 @@ const deleteHotel=async(req,res)=>{
     }
 };
 module.exports={
-    createHotel,
-    getHotelList,
-    getHotelDetails,
-    deleteHotel
+    createTravel,
+    getTravelList,
+    getTravelDetails,
+    deleteTravel
 }
