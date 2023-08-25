@@ -22,10 +22,10 @@ const schoolSchema=new mongoose.Schema(
       unique: false,
     },
     // Website link for the school
-    websiteLink: {
-      type: String,
-    //   default: "https://www.google.com/",
-    },
+    // websiteLink: {
+    //   type: String,
+    // //   default: "https://www.google.com/",
+    // },
     // Average rating of the school from 1-5 stars
     avgRating: {
       type: Number,

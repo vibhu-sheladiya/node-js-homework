@@ -1,10 +1,10 @@
 const {jewelleryService}=require('../services');
 // create hotel
-const createTravel=async(req,res)=>{
+const createJewellery=async(req,res)=>{
     try {
         const reqBody=req.body;
-        console.log(reqBody,'++++++++++ reqbody.travel');
-        const jewellery=await jewelleryService.createTravel(reqBody);
+        console.log(reqBody,'++++++++++ reqbody.Jewellery');
+        const jewellery=await jewelleryService.createJewellery(reqBody);
         if(!jewellery){
             throw new Error("something went to wrong");
         }
@@ -19,9 +19,9 @@ const createTravel=async(req,res)=>{
 };
 
 // get hotel list
-const getTravelList=async(req,res)=>{
+const getJewelleryList=async(req,res)=>{
     try {
-        const jewelleryList=await travelService.getTravelList(req,res);
+        const jewelleryList=await jewelleryService.getJewelleryList(req,res);
         res.status(201).json({
             success:true,
             message:'get all hotels list',
@@ -33,15 +33,15 @@ const getTravelList=async(req,res)=>{
 };
 
 // get hotel details by id
-const getTravelDetails=async(req,res)=>{
+const getJewelleryDetails=async(req,res)=>{
     try {
-        const jewelleryDetails=await travelService.getTravelById(req.params.travelId);
-        if(!travelDetails){
+        const jewelleryDetails=await jewelleryService.getJewelleryById(req.params.jewelleryId);
+        if(!jewelleryDetails){
             throw new Error("trip or travel not found");
         }
         res.status(201).json({
             success:"trip or travel details get success",
-            data:travelDetails,
+            data:jewelleryDetails,
         })
     } catch (error) {
        res.status(400).json({success:false,message:error.message}); 
@@ -49,14 +49,14 @@ const getTravelDetails=async(req,res)=>{
 };
 
 // delete hotel by id
-const deleteTravel=async(req,res)=>{
+const deleteJewellery=async(req,res)=>{
     try {
-        const travelId=req.params.travelId;
-        const travelExists=await travelService.getTravelById(travelId)
-        if(!travelExists){
+        const jewelleryId=req.params.jewelleryId;
+        const jewelleryExists=await jewelleryService.getJewelleryById(jewelleryId)
+        if(!jewelleryExists){
             throw new Error("hotel name not found");
         }
-        await travelService.deleteTravel(travelId);
+        await jewelleryService.deleteJewellery(jewelleryId);
         res.status(201).json({
             success :true,
             message :"deleted succesfully" ,
@@ -66,8 +66,8 @@ const deleteTravel=async(req,res)=>{
     }
 };
 module.exports={
-    createTravel,
-    getTravelList,
-    getTravelDetails,
-    deleteTravel
+    createJewellery,
+    getJewelleryList,
+    getJewelleryDetails,
+    deleteJewellery
 }
