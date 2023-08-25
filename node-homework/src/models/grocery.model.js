@@ -17,7 +17,10 @@ const grocerySchema=new mongoose.Schema({
         },
         available_stock:{
             type:Boolean,
-        },
+        },is_active:{
+            type:Boolean,
+            default:false,
+        }
 },{timestamps:true});
 const Grocery=mongoose.model('grocery',grocerySchema);
 module.exports=Grocery;

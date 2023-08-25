@@ -11,7 +11,7 @@ const createGrocery=async(reqBody)=>{
 
 // get list Grocery service
 const getGroceryList=async(req,res)=>{
-    return Grocery.find();
+    return Grocery.find({$or:[{is_active:true}]});
 }
 // get list Grocery by id
 const getGroceryById=async(groceryId)=>{
