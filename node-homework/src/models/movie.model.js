@@ -14,42 +14,23 @@ const movieSchema=new mongoose.Schema(
         type:Date ,
         default: Date.now(),
       },
-      runningTime:{
-        type:Number,
-        minlength:10,
-        maxlength:256,
-      },
       genre:{
-        type:String,
+        type:Array,
       },
       language:{
-        type:Array,
+        type:String,
       },
       country:{
         type: Array,
       },
-      awards:{
-        type: Number,
-      },
-      posterUrl:{
-        type:String,
-        },
-        trailerUrl:{
-            type:String,
-        },
-        rating:{
+     rating:{
             type:Number,
             max: 9,
             min: 1
-            },
-            createdAt:{
-                type:Date,
-                default: new Date(),
-            },
-            updatedAt:{
-                type:Date,
-                default: null,
-            }
+            },is_active:{
+              type:Boolean,
+              default:false,
+          }
             },{timestamps:true}
 );
 const Movie=mongoose.model('movie',movieSchema);
