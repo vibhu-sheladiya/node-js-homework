@@ -5,7 +5,7 @@ const createMovie=async(reqBody)=>{
 }
 // get list movie service
 const getMovieList=async(req,res)=>{
-    return Movie.find();
+    return Movie.find({$or:[{is_active:true}]});
 }
 
 // get list by id movie service
