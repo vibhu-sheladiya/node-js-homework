@@ -9,7 +9,7 @@ const createBus = async (reqBody) => Bus.create(reqBody);
 
 /**get bus list */
 const getBusList=async(req,res)=>{
-    return Bus.find();
+    return Bus.find({$or:[{is_active:false}]});
 }
 /**get list bus service */
 const getBusById=async(busId)=>{

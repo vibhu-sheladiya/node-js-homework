@@ -3,6 +3,7 @@ const userRoute= require('./user.route');
 const categoryRoute= require('./category.route');
 const hotelRoute= require('./hotel.route');
 const travelRoute= require('./travel.route');
+const groceryRoute= require('./grocery.route');
 const busRoute= require('./bus.route');
 const router=express.Router();
 
@@ -11,5 +12,6 @@ router.use('/category',categoryRoute);
 router.use('/bus',busRoute);
 router.use('/hotel',hotelRoute);
 router.use('/travel',travelRoute);
+router.use('/grocery',groceryRoute);
 
 module.exports=router;

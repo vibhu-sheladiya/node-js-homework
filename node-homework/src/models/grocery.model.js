@@ -2,12 +2,12 @@ const mongoose=require('mongoose');
 const grocerySchema=new mongoose.Schema({
     gro_name:{
         type:String,
-        required:[true,'Please enter the name of your Grocery'],
+        // required:[true,'Please enter the name of your Grocery'],
         trim:true,
     },
     total_price:{
-        type : Number ,
-        default:'0',
+        type:Number,
+        // default:'0',
         },
         brand:{
             type: String,
@@ -16,7 +16,7 @@ const grocerySchema=new mongoose.Schema({
             type:Number,
         },
         available_stock:{
-            type:Number,
+            type:Boolean,
         },
 },{timestamps:true});
 const Grocery=mongoose.model('grocery',grocerySchema);
