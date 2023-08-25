@@ -13,6 +13,13 @@ const getMusicById=async(musiId)=>{
 }
 
 // delete music
-const deleteMusic=async(musiId)=>{
-    return Music.findByIdAndDelete(musiId)
+// const deleteMusic=async(musiId)=>{
+//     return Music.findByIdAndDelete(musiId)
+// }
+
+module.exports={
+    createMusic,
+    getMusicList,
+    getMusicById,
+    //deleteMusic
 }
