@@ -28,7 +28,7 @@ const musicSchema = new mongoose.Schema(
       lowercase: true,
       uppercase: false,
     },
-    albumName: {
+    album_name: {
       type: String,
     },
   },

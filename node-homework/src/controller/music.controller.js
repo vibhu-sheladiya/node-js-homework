@@ -1,17 +1,18 @@
+const { musicController } = require('.');
 const {musicService}=require('../services');
 // create movie 
 const createMusic=async(req,res)=>{
     try {
         const reqBody=req.body;
         console.log(reqBody,'+++++++++++reqbody.music');
-        const movie=await musicService.createMusic(reqBody);
-        if(!movie){
+        const music=await musicService.createMusic(reqBody);
+        if(!music){
             throw new Error("something went to wrong");
         }
         res.status(201).json({
             success:true,
             message:"created successfully",
-            data:{movie},
+            data:{music},
         })
     } catch (error) {
         res.status(400).json({success:false,message:error.message});
@@ -35,13 +36,13 @@ const getMusicList=async(req,res)=>{
 // get list movie by id
 const getMusicDetails=async(req,res)=>{
     try {
-        const movieDetails=await musicService.getMusicById(req.params.movieId);
-        if(!movieDetails){
+        const musicDetails=await musicService.getMusicById(req.params.musicId);
+        if(!musicDetails){
             throw new Error('no such movie found')
         }
         res.status(201).json({
-            success :"movie details list success",
-            data : {...movieDetails},
+            success :"music details list success",
+            data : {...musicDetails},
         })
     } catch (error) {
         res.status(400).json({success:false,message:error.message});
@@ -49,17 +50,17 @@ const getMusicDetails=async(req,res)=>{
 };
 
 // delete movie by id
-const deleteMovie = async (req ,res )=>{
+const deleteMusic = async (req ,res )=>{
     try {
-        const movieId=req.params.movieId;
-        const movieExists=await movieService.getMovieById(movieId);
-        if(!movieExists){
-            throw  new Error ('No Such Movie Found');
+        const musicId=req.params.musicId;
+        const musicExists=await musicService.getMusicById(musicId);
+        if(!musicExists){
+            throw  new Error ('No Such music Found');
         }
-        await  movieService.deleteMovie(movieId);
+        await  musicService.deleteMusic(musicId);
         res.status(201).json({
             success:true,
-            message:`${movieId} deleted Successfully`,
+            message:`${musicId} deleted Successfully`,
         });
     } catch (error) {
         res.status(400).json({success:false,message:error.message});
@@ -69,5 +70,5 @@ module.exports={
     createMusic,
     getMusicList,
     getMusicDetails,
-    deleteMovie,
+    deleteMusic,
 }

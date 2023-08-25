@@ -7,19 +7,19 @@ const createMusic=async(reqBody)=>{
 const getMusicList=async(req,res)=>{
     return Music.find();
 }
-// get list id music
-const getMusicById=async(musiId)=>{
-    return Music.findById(musiId);
-}
+// // get list id music
+const getMusicById=async(musicId)=>{
+    return Music.findById(musicId);
+ }
 
 // delete music
-// const deleteMusic=async(musiId)=>{
-//     return Music.findByIdAndDelete(musiId)
-// }
+const deleteMusic=async(musicId)=>{
+    return Music.findByIdAndDelete(musicId);
+}
 
 module.exports={
     createMusic,
     getMusicList,
     getMusicById,
-    //deleteMusic
+    deleteMusic
 }
