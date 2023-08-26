@@ -51,7 +51,7 @@ const busSchema=new mongoose.Schema({
         default:true,
     }
     },
-    {timestamps: true,autoCreate: false}
+    {timestamps: true}
     );
     
     const Bus=mongoose.model('bus',busSchema);

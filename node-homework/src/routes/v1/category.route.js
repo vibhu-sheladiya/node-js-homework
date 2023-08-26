@@ -1,5 +1,5 @@
 const express=require('express');
-// const {userValidation}= require('../../validations');
+// const {cateValidation}= require('../../validations');
 const {categoryController}=require('../../controller');
 // const validate=require('../../middlewares/validate');
 const router=express.Router();

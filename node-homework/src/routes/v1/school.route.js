@@ -1,8 +1,11 @@
 const express=require('express');
 const {schoolController}=require('../../controller');
+const {schoolValidation}= require('../../validations');
+const validate=require('../../middlewares/validate');
 const router=express.Router();
 
 router.post('/create-school',
+validate(schoolValidation.createSchool),
 schoolController.createSchool);
 
 router.get('/list',

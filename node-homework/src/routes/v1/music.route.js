@@ -1,8 +1,11 @@
 const express=require('express');
 const {musicController}=require('../../controller');
+const {musicValidation}= require('../../validations');
+const validate=require('../../middlewares/validate');
 const router=express.Router();
 
 router.post('/create-music',
+validate(musicValidation.createMusic),
 musicController.createMusic);
 
 router.get('/list',

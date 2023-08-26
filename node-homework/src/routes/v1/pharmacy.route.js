@@ -1,8 +1,11 @@
 const express=require('express');
 const {pharmacyController}=require('../../controller');
+const {pharmacyValidation}= require('../../validations');
+const validate=require('../../middlewares/validate');
 const router=express.Router();
 
 router.post('/create-pharmacy',
+validate(pharmacyValidation.createPharmacy),
 pharmacyController.createPharmacy);
 
 router.get('/list',
