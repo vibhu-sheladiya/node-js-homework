@@ -31,7 +31,7 @@ email:{
     lowercase:true,
 },
 // phone number for contacting the user
-phoneNo:{
+phoneno:{
     type:Number,
     trim:true,
 },is_active:{

@@ -15,3 +15,8 @@ router.delete('/delete/:pharmacyId',
 pharmacyController.deletePharmacy);
 
 module.exports = router;
+
+
+
+
+
