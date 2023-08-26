@@ -20,28 +20,36 @@ const pharmacySchema=new mongoose.Schema(
         product_name:{
             type:String,
         },
-        quantity:{
-            type: Number,
-        },
-        pricePerUnit:{
-            type:Number,
-        },
+        // quantity:{
+        //     type: Number,
+        // },
+        // pricePerUnit:{
+        //     type:Number,
+        // },
         totalPrice:{
             type:Number,
         },
-        dateOfPurchased:{
-    type:Date,
-        },
+    //     dateOfPurchased:{
+    // type:Date,
+    //     },
         status:{
-            default:'pending',
+            // default:'pending',
             type:String,
         },
-        brand_name:{
-            type:String,
-        }
+        is_active:{
+            type:Boolean,
+            default:false,
+        },
+        is_active:{
+            type:Boolean,
+            default:true,
+        },
+    //     brand_name:{
+    //         type:String,
+    //     }
 
 
-    },{timestamps:true,autoCreate:false}
+    },{timestamps:true,autoCreate:true}
 );
 const Pharmacy=mongoose.model('pharmacy',pharmacySchema);
 module.exports =Pharmacy;

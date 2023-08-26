@@ -27,6 +27,9 @@ const jewellerySchema= new mongoose.Schema(
         },
         item_name:{
             type:String,
+        },is_active:{
+            type:Boolean,
+            default:true,
         },
     
         // imagePath :{

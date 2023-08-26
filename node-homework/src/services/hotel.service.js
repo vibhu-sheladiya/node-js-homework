@@ -11,7 +11,8 @@ const createHotel=async(reqBody)=>{
 
 // get list hotel service
 const getHotelList=async(req,res)=>{
-    return Hotel.find();
+    // return Hotel.find();
+    return Hotel.find({$or:[{is_active:false}]});
 }
 // get list hotel by id
 const getHotelById=async(hotelId)=>{

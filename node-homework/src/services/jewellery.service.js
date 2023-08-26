@@ -11,7 +11,8 @@ const createJewellery=async(reqBody)=>{
 
 // get list travel service
 const getJewelleryList=async(req,res)=>{
-    return Jewellery.find();
+    // return Jewellery.find();
+    return Jewellery.find({$or:[{is_active:false}]});
 }
 // get list Travel by id
 const getJewelleryById=async(jewelleryId)=>{

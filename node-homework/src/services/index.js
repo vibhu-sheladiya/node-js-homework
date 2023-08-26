@@ -9,3 +9,4 @@ module.exports.musicService=require('./music.service');
 module.exports.jewelleryService=require('./jewellery.service');
 module.exports.schoolService=require('./school.service');
 module.exports.stationeryService=require('./stationeries.service');
+module.exports.pharmacyService=require('./pharmacy.service');

@@ -29,7 +29,10 @@ const schoolSchema=new mongoose.Schema(
     // Average rating of the school from 1-5 stars
     avgRating: {
       type: Number,
-    },
+    },is_active:{
+      type:Boolean,
+      default:true,
+  },
     
   },
   { timestamps: true }
