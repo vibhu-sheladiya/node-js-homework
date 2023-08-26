@@ -17,23 +17,23 @@ const stationerySchema=new mongoose.Schema(
             type: String,
             trim:true,
         },
-        category_name:{
-            type:String,
-            trim:true,
-        },
-        unit_name:{
-            type:String,
-            trim:true,
-        },
-        quantity:{
-            type:Number,
-        },
+        // category_name:{
+        //     type:String,
+        //     trim:true,
+        // },
+        // unit_name:{
+        //     type:String,
+        //     trim:true,
+        // },
+        // quantity:{
+        //     type:Number,
+        // },
         price:{
             type: Number,
         },
-        stock_quantity:{
-            type:Number,
-        },
+        // stock_quantity:{
+        //     type:Number,
+        // },
         in_stock:{
             type:Boolean,
         },
