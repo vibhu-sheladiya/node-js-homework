@@ -22,9 +22,15 @@ const getHotelById=async(hotelId)=>{
 const deleteHotel=async(hotelId)=>{
     return Hotel.findByIdAndDelete(hotelId)
 }
+
+// update hotel
+const updateHotel=async(hotelId,updateBody)=>{
+    return await  Hotel.findOneAndUpdate({'id':hotelId},{$set:{...updateBody}},{new :true});
+}
 module.exports={
     createHotel,
     getHotelList,
     getHotelById,
-    deleteHotel
+    deleteHotel,
+    updateHotel
 };

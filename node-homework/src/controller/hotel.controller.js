@@ -65,6 +65,19 @@ const deleteHotel=async(req,res)=>{
         res.status(400).json({success:false,message:error.message});
     }
 };
+
+// update hotel
+const updateHotel=async(req,res)=>{
+    try {
+        const hotelId=req.params.hotelId;
+        const hotelEx=await hotelService.getHotelById(hotelId);
+        if(!hotelEx){
+            throw  new Error('hotel doesnot exist');
+        }
+    } catch (error) {
+        
+    }
+}
 module.exports={
     createHotel,
     getHotelList,
