@@ -5,7 +5,7 @@ const {busController}=require('../../controller');
 const router=express.Router();
 
 router.post('/create-bus',
-validate(busValidation.createBus),
+// validate(busValidation.createBus),
 busController.createBus);
 
 router.get('/list',
@@ -15,6 +15,9 @@ router.get('/listid/:busId',
 busController.getBusDetails);
 
 router.delete('/delete/:busId',
-busController.deleteBus)
+busController.deleteBus);
+
+router.put('/update-bus/:busId',
+busController.updateBus);
 
 module.exports = router;

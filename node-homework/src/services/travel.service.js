@@ -22,9 +22,15 @@ const getTravelById=async(travelId)=>{
 const deleteTravel=async(travelId)=>{
     return Travel.findByIdAndDelete(travelId)
 }
+
+// update
+const updateTravel=async(travelId,updateBody)=>{
+    return await  Travel.findOneAndUpdate({'id':travelId},{$set:{...updateBody}},{new :true});
+}
 module.exports={
     createTravel,
     getTravelList,
     getTravelById,
-    deleteTravel
+    deleteTravel,
+    updateTravel
 };

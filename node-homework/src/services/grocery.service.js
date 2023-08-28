@@ -21,9 +21,15 @@ const getGroceryById=async(groceryId)=>{
 const deleteGrocery=async(groceryId)=>{
     return Grocery.findByIdAndDelete(groceryId);
 }
+
+// updte
+const updateGrocery=async(groceryId,updateBody)=>{
+    return await  Grocery.findOneAndUpdate({'id':groceryId},{$set:{...updateBody}}) ;
+}
 module.exports={
     createGrocery,
     getGroceryList,
     getGroceryById,
-    deleteGrocery
+    deleteGrocery,
+    updateGrocery
 };

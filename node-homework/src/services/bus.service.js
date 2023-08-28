@@ -21,9 +21,18 @@ const deleteBus=async(busId)=>{
     return Bus.findByIdAndDelete(busId)
 }
 
+// update bus
+const updateBus=async(busId,updateBody)=>{
+    // return await Bus.findOneAndUpdate({'id':busId['params']['busId']},{$set:{'name':updateBody["body"]["name"]}})
+    return  await Bus.findOneAndUpdate({"_id":busId},{$set:{...updateBody}},
+    // {new : false}
+    )
+}
+
 module.exports={
     createBus,
     getBusList,
     getBusById,
-    deleteBus
+    deleteBus,
+    updateBus
 };

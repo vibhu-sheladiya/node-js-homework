@@ -10,8 +10,8 @@ const createBus = async (req, res) => {
         }
         res.status(200).json({
             success: true,
-            message: reqBody,
-            data: { reqBody },
+            message: 'success',
+            data:  bus,
           });
         } catch (error) {
           res.status(400).json({ success: false, message: error.message });
@@ -66,9 +66,31 @@ const deleteBus=async(req,res)=>{
   }
 };
 
+// update bus
+const updateBus=async(req,res)=>{
+  try {
+    const busId=req.params.busId;
+    const busEx=await busService.getBusById(busId);
+    if(!busEx){
+      throw new Error("bus not found");
+  }
+  await busService.updateBus(busId);
+  res.status(201).json({
+    success:true,
+    message:"successfuly bus"
+  })
+  } catch (error) {
+    res.status(401).json({
+      success:false,
+      message:error.message,
+    });
+  }
+};
+
 module.exports={
     createBus,
     getBusList,
     getBusDetails,
-    deleteBus
-}
+    deleteBus,
+    updateBus
+  }

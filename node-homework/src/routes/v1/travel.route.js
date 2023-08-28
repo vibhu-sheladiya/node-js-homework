@@ -17,4 +17,7 @@ travelController.getTravelDetails);
 router.delete('/delete/:travelId',
 travelController.deleteTravel);
 
+router.put('/update-travel/:travelId',
+travelController.updateTravel);
+
 module.exports=router;

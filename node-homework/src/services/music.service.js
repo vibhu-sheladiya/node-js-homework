@@ -18,9 +18,16 @@ const deleteMusic=async(musicId)=>{
     return Music.findByIdAndDelete(musicId);
 }
 
+// update music by id
+const updateMusic = async (musicId , updateBody) => {
+    // return Music.findByIdAndUpdate(musicId, { $set: updateBody });
+    return await Music.findByIdAndUpdate(musicId,{...updateBody}) ;
+    // return await Music.findByIdAndUpdate(musicId,{$set: updateBody}) ;
+}
 module.exports={
     createMusic,
     getMusicList,
     getMusicById,
-    deleteMusic
+    deleteMusic,
+    updateMusic
 }
