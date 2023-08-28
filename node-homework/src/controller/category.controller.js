@@ -12,9 +12,11 @@ const createCategory = async (req, res) => {
     //   throw new Error("User already created by this email!");
     // }
 
-    const category = await categoryService.createCategory(reqBody);
-    if (!category) {
-      throw new Error("Something went wrong, please try again or later!");
+    const categoryEx = await categoryService.getCategoryByName(reqBody.category_name);
+    // const categoryEx = await categoryService.createCategory(reqBody);
+    if (!categoryEx) {
+      // throw new Error("Something went wrong, please try again or later!");
+      throw new Error(`please add other category this ${categoryEx.category_name} category already created.`);
     }
 
     res.status(200).json({
@@ -26,7 +28,10 @@ const createCategory = async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
-  
+ 
+
+
+
   /** Get user list */
   // const getUserList = async (req, res) => {
   //   try {
