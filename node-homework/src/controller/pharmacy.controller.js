@@ -3,7 +3,7 @@ const {pharmacyService}=require('../services');
 const createPharmacy=async(req,res)=>{
     try {
         const reqBody=req.body;
-        console.log(reqBody,'+++++++++++reqbody.movie');
+        console.log(reqBody,'+++++++++++reqbody.pharmacy');
         const pharmacy=await pharmacyService.createPharmacy(reqBody);
         if(!pharmacy){
             throw new Error("something went to wrong");
@@ -65,9 +65,31 @@ const deletePharmacy = async (req ,res )=>{
         res.status(400).json({success:false,message:error.message});
     }
 };
+
+// update pharmacy
+const updatePharmacy=  async(req,res)=>{
+    try {
+        const pharmacyId=req.params.pharmacyId;
+        const pharmacyEx=await pharmacyService.getPharmacyById(pharmacyId);
+        if(!pharmacyEx){
+            throw new Error("pharmacy not found");
+        }
+        await pharmacyService.updatePharmacy(pharmacyId,req.body);
+        res.status(201).json({
+            success:true,
+            message:"successfully updated"
+        });
+    } catch (error) {
+        res.status(400).json({
+            success:false,
+            message:error.message,
+        });
+    }
+};
 module.exports={
     createPharmacy,
     getPharmacyList,
     getPharmacyDetails,
     deletePharmacy,
+    updatePharmacy
 }

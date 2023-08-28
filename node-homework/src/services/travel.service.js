@@ -1,8 +1,8 @@
 const {Travel}=require('../models');
 /**
- * Create hotel
+ * Create Travel
  * @param {object} reqBody
- * @returns {Promise<Hotel>}
+ * @returns {Promise<Travel>}
  */
 // create travel
 const createTravel=async(reqBody)=>{
@@ -23,10 +23,10 @@ const deleteTravel=async(travelId)=>{
     return Travel.findByIdAndDelete(travelId)
 }
 
-// update
+// update Travel
 const updateTravel=async(travelId,updateBody)=>{
-    return await  Travel.findOneAndUpdate({'id':travelId},{$set:{...updateBody}},{new :true});
-}
+    return await Travel.findByIdAndUpdate(travelId,{...updateBody})
+} 
 module.exports={
     createTravel,
     getTravelList,

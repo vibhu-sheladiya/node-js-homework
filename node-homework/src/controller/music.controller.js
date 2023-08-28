@@ -1,6 +1,6 @@
-const { musicController } = require('.');
+
 const {musicService}=require('../services');
-// create movie 
+// create music 
 const createMusic=async(req,res)=>{
     try {
         const reqBody=req.body;
@@ -19,7 +19,7 @@ const createMusic=async(req,res)=>{
     }
 };
 
-//get list movie
+//get list music
 const getMusicList=async(req,res)=>{
     try {
         const musicList=await musicService.getMusicList(req,res);
@@ -33,12 +33,12 @@ const getMusicList=async(req,res)=>{
     }
 } ;
 
-// get list movie by id
+// get list music by id
 const getMusicDetails=async(req,res)=>{
     try {
         const musicDetails=await musicService.getMusicById(req.params.musicId);
         if(!musicDetails){
-            throw new Error('no such movie found')
+            throw new Error('no such music found')
         }
         res.status(201).json({
             success :"music details list success",
@@ -49,7 +49,7 @@ const getMusicDetails=async(req,res)=>{
     }
 };
 
-// delete movie by id
+// delete music by id
 const deleteMusic = async (req ,res )=>{
     try {
         const musicId=req.params.musicId;

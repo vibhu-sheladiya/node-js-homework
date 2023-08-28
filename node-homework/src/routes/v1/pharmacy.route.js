@@ -17,6 +17,9 @@ pharmacyController.getPharmacyDetails);
 router.delete('/delete/:pharmacyId',
 pharmacyController.deletePharmacy);
 
+router.put('/update-pharmacy/:pharmacyId',
+pharmacyController.updatePharmacy);  //validation middleware for update pharmacy
+
 module.exports = router;
 
 

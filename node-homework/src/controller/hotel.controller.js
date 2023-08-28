@@ -59,7 +59,7 @@ const deleteHotel=async(req,res)=>{
         await hotelService.deleteHotel(hotelId);
         res.status(201).json({
             success :true,
-            message :"deleted succesfully" ,
+            message :"deleted successfully" ,
         });
     } catch (error) {
         res.status(400).json({success:false,message:error.message});
@@ -74,13 +74,22 @@ const updateHotel=async(req,res)=>{
         if(!hotelEx){
             throw  new Error('hotel doesnot exist');
         }
+        await hotelService.updateHotel(hotelId,req.body);
+        res.status(201).json({
+            success:true,
+            message:"successfully updated"
+        });
     } catch (error) {
-        
+        res.status(400).json({
+            success:false,
+            message:error.message,
+        });
     }
 }
 module.exports={
     createHotel,
     getHotelList,
     getHotelDetails,
-    deleteHotel
+    deleteHotel,
+    updateHotel
 }

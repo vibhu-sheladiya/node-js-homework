@@ -4,7 +4,7 @@ const {groceryService}=require('../services');
 const createGrocery=async(req,res)=>{
     try {
         const reqBody=req.body;
-        console.log(reqBody,'++++++++++ reqbody.travel');
+        console.log(reqBody,'++++++++++ reqbody.grocery');
         const grocery=await groceryService.createGrocery(reqBody);
         if(!grocery){
             throw new Error("something went to wrong");
@@ -38,7 +38,7 @@ const getGroceryDetails=async(req,res)=>{
     try {
         const groceryDetails=await groceryService.getGroceryById(req.params.groceryId);
         if(!groceryDetails){
-            throw new Error("trip or travel not found");
+            throw new Error("grocery not found");
         }
         res.status(201).json({
             success:"grocery  details get success",
@@ -55,7 +55,7 @@ const deleteGrocery=async(req,res)=>{
         const groceryId=req.params.groceryId;
         const groceryExists=await groceryService.getGroceryById(groceryId)
         if(!groceryExists){
-            throw new Error("hotel name not found");
+            throw new Error("grocery name not found");
         }
         await groceryService.deleteGrocery(groceryId);
         res.status(201).json({

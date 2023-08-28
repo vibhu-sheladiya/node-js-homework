@@ -6,7 +6,7 @@ const movieSchema=new mongoose.Schema(
             required:[true,'movie title is required'],
             trim: true,
         },
-        directorName:{
+        director_name:{
             type : String,
             trim:true,
         },

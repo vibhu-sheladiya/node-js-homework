@@ -1,5 +1,5 @@
 const {travelService}=require('../services');
-// create hotel
+// create travel
 const createTravel=async(req,res)=>{
     try {
         const reqBody=req.body;
@@ -18,13 +18,13 @@ const createTravel=async(req,res)=>{
     }
 };
 
-// get hotel list
+// get travel list
 const getTravelList=async(req,res)=>{
     try {
         const travelList=await travelService.getTravelList(req,res);
         res.status(201).json({
             success:true,
-            message:'get all hotels list',
+            message:'get all travel list',
             data:{travelList},
         })
     } catch (error) {
@@ -32,7 +32,7 @@ const getTravelList=async(req,res)=>{
     }
 };
 
-// get hotel details by id
+// get travel details by id
 const getTravelDetails=async(req,res)=>{
     try {
         const travelDetails=await travelService.getTravelById(req.params.travelId);
@@ -48,13 +48,13 @@ const getTravelDetails=async(req,res)=>{
     }
 };
 
-// delete hotel by id
+// delete travel by id
 const deleteTravel=async(req,res)=>{
     try {
         const travelId=req.params.travelId;
         const travelExists=await travelService.getTravelById(travelId)
         if(!travelExists){
-            throw new Error("hotel name not found");
+            throw new Error("travel name not found");
         }
         await travelService.deleteTravel(travelId);
         res.status(201).json({
@@ -66,7 +66,7 @@ const deleteTravel=async(req,res)=>{
     }
 };
 
-// update 
+// update travel
 const updateTravel=async(req,res)=>{
     try {
         const travelId=req.params.travelId;

@@ -18,4 +18,7 @@ hotelController.getHotelList);
 router.delete('/delete/:hotelId',
 hotelController.deleteHotel);
 
+router.put('/update-hotel/:hotelId',
+hotelController.updateHotel);
+
 module.exports=router;

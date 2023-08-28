@@ -37,10 +37,10 @@ const getSchoolDetails=async(req,res)=>{
     try {
         const schoolDetails=await schoolService.getSchoolById(req.params.schoolId);
         if(!schoolDetails){
-            throw new Error("trip or travel not found");
+            throw new Error("school not found");
         }
         res.status(201).json({
-            success:"trip or travel details get success",
+            success:"school details get success",
             data:schoolDetails,
         })
     } catch (error) {
@@ -54,7 +54,7 @@ const deleteSchool=async(req,res)=>{
         const schoolId=req.params.schoolId;
         const schoolExists=await schoolService.getSchoolById(schoolId)
         if(!schoolExists){
-            throw new Error("hotel name not found");
+            throw new Error("school name not found");
         }
         await schoolService.deleteSchool(schoolId);
         res.status(201).json({
@@ -65,9 +65,31 @@ const deleteSchool=async(req,res)=>{
         res.status(400).json({success:false,message:error.message});
     }
 };
+
+// update school
+const updateSchool=  async(req,res)=>{
+    try {
+        const schoolId=req.params.schoolId;
+        const schoolEx=await schoolService.getSchoolById(schoolId);
+        if(!schoolEx){
+            throw new Error("school not found");
+        }
+        await schoolService.updateSchool(schoolId,req.body);
+        res.status(201).json({
+            success:true,
+            message:"successfully updated"
+        });
+    } catch (error) {
+        res.status(400).json({
+            success:false,
+            message:error.message,
+        });
+    }
+};
 module.exports={
     createSchool,
     getSchoolList,
     getSchoolDetails,
-    deleteSchool
+    deleteSchool,
+    updateSchool
 }

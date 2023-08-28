@@ -1,30 +1,38 @@
 const {Jewellery}=require('../models');
 /**
- * Create hotel
+ * Create Jewellery
  * @param {object} reqBody
- * @returns {Promise<Hotel>}
+ * @returns {Promise<Jewellery>}
  */
-// create travel
+// create Jewellery
 const createJewellery=async(reqBody)=>{
     return Jewellery.create(reqBody);
 };
 
-// get list travel service
+// get list Jewellery service
 const getJewelleryList=async(req,res)=>{
     // return Jewellery.find();
     return Jewellery.find({$or:[{is_active:false}]});
 }
-// get list Travel by id
+// get list Jewellery by id
 const getJewelleryById=async(jewelleryId)=>{
     return Jewellery.findById(jewelleryId);
 }
-// delete Travel
+// delete Jewellery
 const deleteJewellery=async(jewelleryId)=>{
     return Jewellery.findByIdAndDelete(jewelleryId)
 }
+
+// update Jewellery
+const updateJewellery=async(jewelleryId,updateBody)=>{
+    return await Jewellery.findByIdAndUpdate(jewelleryId,{...updateBody});
+    // return await  Hotel.findOneAndUpdate({'id':hotelId},{$set:{...updateBody}});
+}
+
 module.exports={
     createJewellery,
     getJewelleryList,
     getJewelleryById,
-    deleteJewellery
+    deleteJewellery,
+    updateJewellery
 };

@@ -17,4 +17,7 @@ stationeryController.getStationeryDetails);
 router.delete('/delete/:stationeryId',
 stationeryController.deleteStationery)
 
+router.put('/update-stationery/:stationeryId',
+stationeryController.updateStationery);
+
 module.exports = router;

@@ -9,7 +9,7 @@ const createBus = async (reqBody) => Bus.create(reqBody);
 
 /**get bus list */
 const getBusList=async(req,res)=>{
-    return Bus.find({$or:[{is_active:false}]});
+    return Bus.find({$or:[{is_active:true}]});
 }
 /**get list bus service */
 const getBusById=async(busId)=>{
@@ -24,9 +24,10 @@ const deleteBus=async(busId)=>{
 // update bus
 const updateBus=async(busId,updateBody)=>{
     // return await Bus.findOneAndUpdate({'id':busId['params']['busId']},{$set:{'name':updateBody["body"]["name"]}})
-    return  await Bus.findOneAndUpdate({"_id":busId},{$set:{...updateBody}},
+    // return  await Bus.findOneAndUpdate({"_id":busId},{$set:{...updateBody}},
+    return await Bus.findByIdAndUpdate(busId,{...updateBody}) ;
     // {new : false}
-    )
+
 }
 
 module.exports={

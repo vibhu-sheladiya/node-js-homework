@@ -1,26 +1,32 @@
 const {Stationery}=require('../models');
-// create music
+// create Stationery
 const createStationery=async(reqBody)=>{
     return Stationery.create(reqBody);
 }
-// get list music 
+// get list Stationery 
 const getStationeryList=async(req,res)=>{
     // return Stationery.find();
     return Stationery.find({$or:[{is_active:false}]});
 }
-// // get list id music
+// // get list id Stationery
 const getStationeryById=async(stationeryId)=>{
     return Stationery.findById(stationeryId);
  }
 
-// delete music
+// delete Stationery
 const deleteStationery=async(stationeryId)=>{
     return Stationery.findByIdAndDelete(stationeryId);
+}
+
+// update Stationery
+const updateStationery=async(stationeryId,updateBody)=>{
+    return await Stationery.findByIdAndUpdate(stationeryId,{...updateBody});
 }
 
 module.exports={
     createStationery,
     getStationeryList,
     getStationeryById,
-    deleteStationery
+    deleteStationery,
+    updateStationery
 }
