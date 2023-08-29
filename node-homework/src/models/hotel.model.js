@@ -35,7 +35,7 @@ const hotelSchema= new mongoose.Schema(
             type:String,
             trim   :true,
         },
-        // Type of Room: single, double etc
+        // Type of Room: single, double etc [to my understand]
         // room_type: {
         //     type: String,
         //     default: null

@@ -11,10 +11,6 @@ const categoryScheme = new mongoose.Schema(
       trim: true,
       maxlength: [50, "maximum length is 25 characters"],
     },
-    // image:{
-    //         data: Buffer,
-    //         contentType: String
-    //   }
     is_active: {
       type: Boolean,
       default: false,

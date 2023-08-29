@@ -21,11 +21,7 @@ const schoolSchema=new mongoose.Schema(
       type: String,
       unique: false,
     },
-    // Website link for the school
-    // websiteLink: {
-    //   type: String,
-    // //   default: "https://www.google.com/",
-    // },
+   
     // Average rating of the school from 1-5 stars
     avgRating: {
       type: Number,
@@ -33,6 +29,11 @@ const schoolSchema=new mongoose.Schema(
       type:Boolean,
       default:true,
   },
+   // Website link for the school [to my  unterstand]
+    // websiteLink: {
+    //   type: String,
+    // //   default: "https://www.google.com/",
+    // },
     
   },
   { timestamps: true }

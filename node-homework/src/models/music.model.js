@@ -31,12 +31,12 @@ const musicSchema = new mongoose.Schema(
     album_name: {
       type: String,
     },
-    is_active:{
-      type:Boolean,
-      default:true,
-  },
+    is_active: {
+      type: Boolean,
+      default: true,
+    },
   },
   { timestamps: true }
 );
-const Music = mongoose.model('music', musicSchema);
+const Music = mongoose.model("music", musicSchema);
 module.exports = Music;
