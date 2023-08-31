@@ -27,6 +27,10 @@ const stationerySchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: "category",
     },
+    school:{
+      type: mongoose.Types.ObjectId,
+      ref: "school",
+   },
     is_active: {
       type: Boolean,
       default: true,
