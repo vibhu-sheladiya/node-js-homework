@@ -15,7 +15,8 @@ const userScheme = new mongoose.Schema(
       trim: true,
     },password:{
         type :String,
-    },is_active:{
+    },
+    is_active:{
         type:Boolean,
         default:true,
     },

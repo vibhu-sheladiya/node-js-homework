@@ -17,7 +17,7 @@ const jewellerySchema= new mongoose.Schema(
         },
         category_name:{
             type:String,
-            // ref:"Category",
+            ref:"Category",
         },
         quantity:{
             type: Number,
@@ -27,7 +27,8 @@ const jewellerySchema= new mongoose.Schema(
         },
         item_name:{
             type:String,
-        },is_active:{
+        }, 
+        is_active:{
             type:Boolean,
             default:true,
         },

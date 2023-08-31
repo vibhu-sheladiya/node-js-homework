@@ -23,6 +23,10 @@ const stationerySchema = new mongoose.Schema(
     in_stock: {
       type: Boolean,
     },
+    category: {
+      type: mongoose.Types.ObjectId,
+      ref: "category",
+    },
     is_active: {
       type: Boolean,
       default: true,

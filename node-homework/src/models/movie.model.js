@@ -28,6 +28,10 @@ const movieSchema = new mongoose.Schema(
       max: 9,
       min: 1,
     },
+    music: {
+      type: mongoose.Types.ObjectId,
+      ref: "music",
+    },
     is_active: {
       type: Boolean,
       default: false,

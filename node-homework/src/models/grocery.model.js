@@ -17,7 +17,9 @@ const grocerySchema=new mongoose.Schema({
         },
         available_stock:{
             type:Boolean,
-        },is_active:{
+        },
+        
+        is_active:{
             type:Boolean,
             default:false,
         }

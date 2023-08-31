@@ -34,7 +34,19 @@ email:{
 phoneno:{
     type:Number,
     trim:true,
-},is_active:{
+},bus:{
+    type: mongoose.Types.ObjectId,
+    ref: "bus",
+ },
+ hotel:{
+    type: mongoose.Types.ObjectId,
+    ref: "hotel",
+ },
+ user:{
+    type: mongoose.Types.ObjectId,
+    ref: "users",
+ },
+is_active:{
     type:Boolean,
     default:true,
 },

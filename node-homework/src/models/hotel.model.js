@@ -66,7 +66,7 @@ const hotelSchema= new mongoose.Schema(
             default:true,
         },
     }, {
-        timestamps: true,autoCreate: false
+        timestamps: true,
     });
     const Hotel=mongoose.model('hotel',hotelSchema);
     module.exports=Hotel;

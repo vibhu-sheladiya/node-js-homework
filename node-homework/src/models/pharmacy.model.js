@@ -44,6 +44,10 @@ const pharmacySchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    product: {
+      type: mongoose.Types.ObjectId,
+      ref: "products",
+    },
     brand_name: {
       type: String,
     },

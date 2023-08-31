@@ -7,7 +7,6 @@ const productSchema = new mongoose.Schema(
     },
     product_price: { type: Number },
     product_description: { type: String },
-
     product_brand_name: { type: String },
     product_quantity_in_stock: { type: Number },
     product_rating: { type: Number },
@@ -16,13 +15,17 @@ const productSchema = new mongoose.Schema(
     product_status: { type: Boolean },
     product_discountPercentage: { type: Number },
     product_colors: { type: Array },
-
     variants: { type: Array },
     isDeleted: { type: Boolean },
+    category: {
+      type: mongoose.Types.ObjectId,
+      ref: "categorys",
+    },
+  
   },
 
   { timestamps: true },
-  { collection: "" } //database collection name
+  // { collection: "" } //database collection name
 );
 const Product = mongoose.model("products", productSchema);
 module.exports = Product;
@@ -48,4 +51,3 @@ module.exports = Product;
 // sizeImages:{type : Array},
 // images:{type : Array},
 // imagePath:{type : String},
-// categoryId:{type : mongoose.Types.ObjectId},
