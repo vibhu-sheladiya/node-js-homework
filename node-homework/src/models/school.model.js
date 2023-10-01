@@ -29,7 +29,7 @@ const schoolSchema=new mongoose.Schema(
       type:Boolean,
       default:true,
   },
-   // Website link for the school [to my  unterstand]
+   // Website link for the school [to my  understand]
     // websiteLink: {
     //   type: String,
     // //   default: "https://www.google.com/",

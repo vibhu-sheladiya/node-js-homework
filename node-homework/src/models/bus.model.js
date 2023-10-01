@@ -50,3 +50,4 @@ const busSchema=new mongoose.Schema({
     
     const Bus=mongoose.model('bus',busSchema);
     module.exports=Bus;
+    

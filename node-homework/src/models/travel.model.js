@@ -53,3 +53,4 @@ is_active:{
 },{timestamps: true});
 const Travel=mongoose.model('travel',travelSchema);
 module.exports=Travel;
+

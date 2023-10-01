@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema(
 const Product = mongoose.model("products", productSchema);
 module.exports = Product;
 
-// to my understand
+// to my understand [plz ignore it]
 // createdAt:{type : Date},
 // updatedAt:{type :Date},
 // deletedAt:{type : Date},

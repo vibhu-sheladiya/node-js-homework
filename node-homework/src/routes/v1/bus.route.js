@@ -5,7 +5,7 @@ const {busController}=require('../../controller');
 const router=express.Router();
 
 router.post('/create-bus',
-// validate(busValidation.createBus),
+validate(busValidation.createBus),
 busController.createBus);
 
 router.get('/list',

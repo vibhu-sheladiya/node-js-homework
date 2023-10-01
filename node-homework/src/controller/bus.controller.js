@@ -12,6 +12,7 @@ const createBus = async (req, res) => {
             success: true,
             message: 'success',
             data:  bus,
+            data:`${bus.routeName}`,
           });
         } catch (error) {
           res.status(400).json({ success: false, message: error.message });
