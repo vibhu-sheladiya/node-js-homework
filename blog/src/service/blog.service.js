@@ -4,27 +4,27 @@ const createBlog = async (body) => {
   return await Blog.create(body);
 };
 
-const findBlogByEmail = async (email) => {
-  return await Blog.findOne(email);
+const findBlogById = async (blogId) => {
+  return await Blog.findById(blogId);
 };
 
-const findBlogAndUpdate = async (_id, token) => {
+const findBlogAndUpdate = async (blogId, updateBody) => {
   return await Blog.findByIdAndUpdate(
-    { _id },
+    { blogId },
     {
-      $set: { token },
+      $set: { ...updateBody },
     },
     { new: true }
   );
 };
 
-const getAllBlog = async (role) => {
-  return await Blog.find(role);
+const getAllBlog = async (req,res) => {
+  return await Blog.find();
 };
 
 module.exports = {
     createBlog,
-    findBlogByEmail,
+    findBlogById,
     findBlogAndUpdate,
     getAllBlog,
 };

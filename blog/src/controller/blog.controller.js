@@ -46,8 +46,41 @@ const multipleBlog=async(req,res)=>{
 // get blog detail 
 const getDetails=async(req,res)=>{
     try {
-        const blog=await blogService.
+        const blog=await blogService.getAllBlog(req,res);
+        return    res.status(200).json({message:"get all details",data:{...blog},success:true})
     } catch (error) {
-        
+        res.status(400).json({success:false,message:error.message});
+    }
+};
+
+// get blog details by Id
+const getDetailById=async(req,res)=>{
+    try {
+        const blog=await blogService.findBlogById(req.params.blogId);
+        return     res.status(200).json({message:"get single blog",data:{...blog[0]},success:true})
+    } catch (error) {
+        res.status(400).json({success:false,message:error.message}); 
+    }
+};
+
+
+const updateBlog=async(req,res)=>{
+    try {
+        const blogId=req.params.blogId;
+        const blogEx=await blogService.findBlogById(blogId);
+        if(!blogEx){
+            throw  new Error('blog doesnot exist');
+        }
+        await blogService.findBlogAndUpdate(blogId,req.body);
+        res.status(201).json({
+            success:true,
+            message:"successfully updated"
+        });
+    } catch (error) {
+        res.status(400).json({
+            success:false,
+            message:error.message,
+        });
     }
 }
+module.exports={createBlog,multipleBlog,updateBlog,getDetails,getDetailById};
