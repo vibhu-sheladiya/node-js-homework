@@ -18,13 +18,13 @@ const findBlogAndUpdate = async (blogId, updateBody) => {
   );
 };
 
-const getAllBlog = async (req,res) => {
+const getAllBlog = async (req, res) => {
   return await Blog.find();
 };
 
 module.exports = {
-    createBlog,
-    findBlogById,
-    findBlogAndUpdate,
-    getAllBlog,
+  createBlog,
+  findBlogById,
+  findBlogAndUpdate,
+  getAllBlog,
 };
